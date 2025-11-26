@@ -1,0 +1,13 @@
+# Required packages for the project
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+streamlit
+shap>=0.40.0
+lime>=0.2.0
+joblib
+catboost
+pyarrow
+fastapi==0.95.1
