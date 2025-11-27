@@ -1,0 +1,31 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+insurance_venv/
+venv/
+.env/
+
+# Data files (raw + processed)
+data/raw/
+data/processed/
+*.csv
+*.parquet
+*.joblib
+
+# Models
+models/
+*.cbm
+*.h5
+*.pkl
+*.pth
+
+# Streamlit
+.streamlit/
+
+# OS files
+.DS_Store
+Thumbs.db
