@@ -104,12 +104,12 @@ A solid portfolio project for **Data Science · ML Engineering · MLOps** roles.
 └── 📘 README.md
 ```
 
+---
 ## 💡 Key Features
 
 ### 🔹 1. Full ML Pipeline
 
 ### Generates engineered features:
-
 - Previous selections (A_prev, B_prev, …)
 - Change indicators (A_changed, …)
 - Cost ratios (caCost, stCost)
@@ -118,7 +118,6 @@ A solid portfolio project for **Data Science · ML Engineering · MLOps** roles.
 - Trains 7 CatBoost models
 
 ### Stores:
-
 - Encoders
 - Stats for UI validation
 - Final models
@@ -127,11 +126,9 @@ A solid portfolio project for **Data Science · ML Engineering · MLOps** roles.
 ### 🔹 2. Streamlit App
 
 **🧾 CSV Batch Prediction**
-
 Upload → Auto-clean → Predict → Download.
 
 **👤 Single-Customer Prediction**
-
 Controlled inputs (dropdowns + ranges)
 
 
@@ -145,47 +142,43 @@ Controlled inputs (dropdowns + ranges)
 ### 🔹 3. FastAPI Backend + Docker
 
 **Exposes endpoints:**
-
-POST /predict_one
-POST /predict_batch
-GET  /health
+- POST /predict_one
+- POST /predict_batch
+- GET  /health
 
 
 **Production-ready using Docker:**
-
-docker build -t insurance-api -f api/Dockerfile .
-docker run -p 8000:8000 insurance-api
+- docker build -t insurance-api -f api/Dockerfile .
+- docker run -p 8000:8000 insurance-api
 
 
 **Interactive API docs:**
 *👉 http://localhost:8000/docs*
 
+---
 ## 🚀 How to Run Locally
 
 ### 1️⃣ Create Environment
-
-python -m venv insurance_venv
-insurance_venv\Scripts\activate   # Windows
-source insurance_venv/bin/activate  # macOS/Linux
+- python -m venv insurance_venv
+- insurance_venv\Scripts\activate   # Windows
+- source insurance_venv/bin/activate  # macOS/Linux
 
 ### 2️⃣ Install Requirements
-
-pip install -r requirements.txt
+*pip install -r requirements.txt*
 
 ### 3️⃣ Run the Streamlit App
-
-streamlit run app/streamlit_app.py
+*streamlit run app/streamlit_app.py*
 
 
 ## Open in browser:
-
 *👉 http://localhost:8501*
 
+---
 ## 🧪 Train the ML Models
 
 **To train all 7 models and generate artifacts:**
 
-python pipeline/training_pipeline.py
+*python pipeline/training_pipeline.py*
 
 ### Outputs:
 
@@ -195,20 +188,18 @@ python pipeline/training_pipeline.py
 - Train/test parquet files
 - Metadata
 
+---
 ## 🌐 Deployment (FastAPI + Docker)
 
-**Build container**
+**Build container:**
+*docker build -t insurance-api -f api/Dockerfile .*
 
-docker build -t insurance-api -f api/Dockerfile .
+**Run:**
+*docker run -p 8000:8000 insurance-api*
 
-**Run**
-
-docker run -p 8000:8000 insurance-api
-
-**Open**
-
+**Open:**
 *👉 http://localhost:8000/docs*
-
+---
 ## 📊 Example Prediction Output
 
 {
@@ -221,7 +212,7 @@ docker run -p 8000:8000 insurance-api
   "G_f": 2
 }
 
-
+---
 ## 🌱 Future Improvements
 
 - Optuna hyperparameter tuning
@@ -231,15 +222,16 @@ docker run -p 8000:8000 insurance-api
 - CI/CD with GitHub Actions
 - Monitoring (Prometheus + Grafana)
 
-### 👨‍💻 Author – Muhammed Shibili
+---
+**👨‍💻 Author – Muhammed Shibili**
 
 **Machine Learning Engineer**
 
-🔥 Passion for production-grade AI systems
-📫 Reach out for collaboration anytime!
+- 🔥 Passion for production-grade AI systems
+- 📫 Reach out for collaboration anytime!
 
 **If you found this helpful:**
 
-⭐ Star the repo
-🔗 Share on LinkedIn
-🍀 Add to your ML portfolio
+- ⭐ Star the repo
+- 🔗 Share on LinkedIn
+- 🍀 Add to your ML portfolio
