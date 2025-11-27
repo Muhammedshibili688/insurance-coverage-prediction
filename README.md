@@ -64,63 +64,69 @@ Insurance Coverage Prediction/
 
 Cleans raw customer quote data
 
-Generates powerful engineered features:
+Feature engineering including:
 
-Previous options (A_prev, B_prev, …)
+Previous selections (A_prev, …)
 
 Change indicators (A_changed, …)
 
-Pair interactions (G_sp_pair)
-
 Cost-based ratios (caCost, ppCost, stCost)
+
+State & location features
 
 Hash interactions
 
-Label encoding + data validation
+Label encoding + validation
 
-CatBoost models for A_f → G_f
+Trains 7 CatBoost models (A_f → G_f)
 
-All artifacts saved for inference
+Saves all artifacts for inference
 
 🔹 2. Streamlit Application
 🧾 CSV Batch Prediction
 
-Upload any CSV → process → get predictions → export results.
+Upload CSV → preprocess → model inference → download predictions.
 
 👤 Single Customer Prediction
 
-Interactive form → real-time model output
+Real-time form-based prediction with:
 
-SHAP waterfall plots showing why the model chose an option.
+SHAP waterfall explanation
 
-📊 Model Evaluation Dashboard
+Clean UI
 
-Accuracy table
+Strict input validation based on training distribution
 
-Confusion matrix (select target)
+📊 Evaluation Dashboard
 
-Feature importance (top 15)
+Accuracy scores
 
-Global SHAP summary plot
+Confusion matrices
 
-This makes the model fully transparent & business-friendly.
+Feature importance plot (Top 15 features)
+
+Global SHAP summary
 
 🔹 3. FastAPI Backend + Docker
 
-A lightweight API for:
+/predict_one
 
-External tools
+/predict_batch
 
-Websites
+/health
 
-Streamlit production mode
+Dockerized for deployment on:
 
-Future cloud deployment
+Render
 
-Dockerfile included for easy deployment.
+Railway
+
+AWS EC2
+
+HuggingFace Spaces
 
 🚀 How to Run
-1️⃣ Setup
+1️⃣ Setup Environment
 python -m venv insurance_venv
 insurance_venv\Scripts\activate   # Windows
 source insurance_venv/bin/activate  # Linux/macOS
@@ -128,22 +134,22 @@ source insurance_venv/bin/activate  # Linux/macOS
 2️⃣ Install Dependencies
 pip install -r requirements.txt
 
-3️⃣ Run Streamlit
+3️⃣ Launch Streamlit App
 streamlit run app/streamlit_app.py
 
 
 Open in browser:
 
-http://localhost:8501
+👉 http://localhost:8501
 
 🧪 Training Pipeline
 
-Train everything end-to-end:
+Run the full training workflow:
 
 python pipeline/training_pipeline.py
 
 
-Outputs:
+This generates:
 
 Trained CatBoost models
 
@@ -151,7 +157,7 @@ Encoders
 
 Processed parquet files
 
-Feature stats
+Input feature stats
 
 Evaluation metrics
 
@@ -178,23 +184,18 @@ DevOps
 
 Docker
 
-(Ready for Railway / Render / HuggingFace Spaces)
+Ready for Railway / Render / HuggingFace
 
 🌐 Deployment (Docker + FastAPI)
-
-Build container:
-
+Build Container
 docker build -t insurance-api -f api/Dockerfile .
 
-
-Run:
-
+Run API
 docker run -p 8000:8000 insurance-api
 
+Open API Docs
 
-Open docs:
-
-http://localhost:8000/docs
+👉 http://localhost:8000/docs
 
 📊 Example Model Output
 {
@@ -208,31 +209,33 @@ http://localhost:8000/docs
 }
 
 
-With SHAP explanation provided below each prediction.
+Each prediction is followed by SHAP explanation in Streamlit.
 
 🌱 Future Improvements
 
-Add Optuna hyperparameter tuning
+Optuna hyperparameter tuning
 
-Introduce deep learning / transformer-based predictors
+Transformer-based models
 
-Add user authentication
+Authentication for API
 
-Deploy Streamlit + API on cloud
+CI/CD pipeline with GitHub Actions
 
-Build CI/CD pipeline with GitHub Actions
+Full cloud deployment
 
-Add monitoring (Prometheus + Grafana)
+Monitoring (Prometheus + Grafana)
 
 👨‍💻 Author
 
 Muhammed Shibili
 💼 Machine Learning Engineer
 🔥 Passionate about production-grade AI systems
-📫 Reach me anytime for collaboration!
+📫 Open to collaborations
 
-⭐ If you found this project useful
+⭐ Support
+
+If this project helped you:
 
 👉 Star the repository
 👉 Share it on LinkedIn
-👉 Use it as a reference for your ML portfolio
+👉 Add it to your ML portfolio
