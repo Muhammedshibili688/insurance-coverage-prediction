@@ -1,31 +1,33 @@
-# Virtual environments
-insurance_venv/
+# Virtual Environments
 venv/
-.env/
-
-# Python cache
-__pycache__/
+insurance_venv/
+*/__pycache__/
 *.pyc
-*.pyo
-*.pyd
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# Data files
+# Data
 data/raw/
 data/processed/
 *.parquet
 *.csv
-*.joblib
 
 # Models
 models/
 *.cbm
+*.joblib
 *.pkl
-*.pth
-*.h5
 
-# Streamlit cache
-.streamlit/
+# System files
+.DS_Store
+Thumbs.db
+
+# SHAP and matplotlib caches
+*.png
+*.pdf
+*.svg
+
+# VS Code
+.vscode/
+
+# Python build
+build/
+dist/
