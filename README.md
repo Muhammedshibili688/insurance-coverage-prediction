@@ -126,10 +126,10 @@ A solid portfolio project for **Data Science · ML Engineering · MLOps** roles.
 ### 🔹 2. Streamlit App
 
 **🧾 CSV Batch Prediction**
-Upload → Auto-clean → Predict → Download.
+- Upload → Auto-clean → Predict → Download.
 
 **👤 Single-Customer Prediction**
-Controlled inputs (dropdowns + ranges)
+- Controlled inputs (dropdowns + ranges)
 
 
 **📊 Model Evaluation Dashboard**
@@ -153,7 +153,7 @@ Controlled inputs (dropdowns + ranges)
 
 
 **Interactive API docs:**
-*👉 http://localhost:8000/docs*
+- *👉 http://localhost:8000/docs*
 
 ---
 ## 🚀 How to Run Locally
@@ -171,7 +171,7 @@ Controlled inputs (dropdowns + ranges)
 
 
 ## Open in browser:
-*👉 http://localhost:8501*
+- *👉 http://localhost:8501*
 
 ---
 ## 🧪 Train the ML Models
@@ -198,7 +198,7 @@ Controlled inputs (dropdowns + ranges)
 *docker run -p 8000:8000 insurance-api*
 
 **Open:**
-*👉 http://localhost:8000/docs*
+- *👉 http://localhost:8000/docs*
 ---
 ## 📊 Example Prediction Output
 
