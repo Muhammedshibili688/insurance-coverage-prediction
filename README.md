@@ -1,40 +1,35 @@
 🛡️ Insurance Coverage Recommendation System (A–G Options)
 
-Predicting final insurance coverage selections using advanced ML, engineered features, and explainable AI.
+Predicting final insurance coverage selections using end-to-end Machine Learning, feature engineering, explainable AI, and deployable infrastructure.
 
-📌 Project Summary
+<p align="left"> <img src="https://img.shields.io/badge/ML-CatBoost-blue?style=flat-square"> <img src="https://img.shields.io/badge/Framework-Streamlit-red?style=flat-square"> <img src="https://img.shields.io/badge/Backend-FastAPI-green?style=flat-square"> <img src="https://img.shields.io/badge/Deployment-Docker-yellow?style=flat-square"> </p>
+📌 Project Overview
 
-This project builds a production-style ML system that predicts the final insurance coverage options (A_f to G_f) selected by customers during the quoting process.
+This project predicts the final insurance coverage options (A_f to G_f) selected by customers during the quoting process.
+It is built as a full production-style ML system, not just a notebook model.
 
-It includes:
+Includes
 
 ✔ Full ML pipeline (cleaning → feature engineering → training → evaluation)
+✔ 7 CatBoost models (multi-target classification)
+✔ Streamlit UI for batch & single-customer prediction
+✔ SHAP explainability (global + local)
+✔ Evaluation dashboards (accuracy, confusion matrix, feature importance)
+✔ FastAPI backend for deployment
+✔ Docker container for production
+✔ Clean modular codebase with reusable components
 
-✔ 7 CatBoost models (one for each target A–G)
-
-✔ A Streamlit app for user interaction
-
-✔ SHAP-based explainability
-
-✔ CSV batch prediction
-
-✔ Single customer prediction
-
-✔ Confusion matrix, accuracy dashboard, feature importance plots
-
-✔ FastAPI backend + Docker setup
-
-Perfect for showcasing end-to-end ML engineering skills.
+A perfect portfolio project for Data Science • ML Engineering • MLOps roles.
 
 🧱 Project Architecture
 Insurance Coverage Prediction/
 │
 ├── app/
-│   └── streamlit_app.py
+│   └── streamlit_app.py          # Streamlit UI
 │
 ├── api/
-│   ├── app.py
-│   └── Dockerfile
+│   ├── app.py                    # FastAPI backend
+│   └── Dockerfile                # Fully deployable container
 │
 ├── src/
 │   ├── config.py
@@ -45,10 +40,11 @@ Insurance Coverage Prediction/
 │   └── data_splitter.py
 │
 ├── models/
-│   └── catboost_A_f.cbm ... catboost_G_f.cbm
+│   ├── catboost_A_f.cbm
+│   ├── catboost_B_f.cbm
+│   └── ... catboost_G_f.cbm
 │
 ├── data/
-│   ├── raw/
 │   └── processed/
 │       ├── train_last.parquet
 │       ├── test_last.parquet
@@ -59,145 +55,119 @@ Insurance Coverage Prediction/
 ├── requirements.txt
 └── README.md
 
-💡 Features
+💡 Key Features
 🔹 1. Full ML Pipeline
 
-Cleans raw customer quote data
+Generates engineered features:
 
-Feature engineering including:
-
-Previous selections (A_prev, …)
+Previous selections (A_prev, B_prev, …)
 
 Change indicators (A_changed, …)
 
-Cost-based ratios (caCost, ppCost, stCost)
+Cost ratios (caCost, stCost)
 
-State & location features
-
-Hash interactions
+Interaction features
 
 Label encoding + validation
 
-Trains 7 CatBoost models (A_f → G_f)
+Trains 7 CatBoost models
 
-Saves all artifacts for inference
+Stores:
 
-🔹 2. Streamlit Application
+Encoders
+
+Stats for UI validation
+
+Final models
+
+Train/test splits
+
+🔹 2. Streamlit App
 🧾 CSV Batch Prediction
 
-Upload CSV → preprocess → model inference → download predictions.
+Upload → Auto-clean → Predict → Download.
 
-👤 Single Customer Prediction
+👤 Single-Customer Prediction
 
-Real-time form-based prediction with:
+Controlled inputs (dropdowns + ranges)
 
-SHAP waterfall explanation
+SHAP waterfall plots explaining WHY each option was chosen.
 
-Clean UI
+📊 Model Evaluation Dashboard
 
-Strict input validation based on training distribution
+Accuracy per target
 
-📊 Evaluation Dashboard
+Confusion matrix
 
-Accuracy scores
-
-Confusion matrices
-
-Feature importance plot (Top 15 features)
+Feature importance (sorted)
 
 Global SHAP summary
 
 🔹 3. FastAPI Backend + Docker
 
-/predict_one
+Exposes endpoints:
 
-/predict_batch
+POST /predict_one
+POST /predict_batch
+GET  /health
 
-/health
 
-Dockerized for deployment on:
+Production-ready using Docker:
 
-Render
+docker build -t insurance-api -f api/Dockerfile .
+docker run -p 8000:8000 insurance-api
 
-Railway
 
-AWS EC2
+Interactive API docs:
+👉 http://localhost:8000/docs
 
-HuggingFace Spaces
-
-🚀 How to Run
-1️⃣ Setup Environment
+🚀 How to Run Locally
+1️⃣ Create Environment
 python -m venv insurance_venv
 insurance_venv\Scripts\activate   # Windows
-source insurance_venv/bin/activate  # Linux/macOS
+source insurance_venv/bin/activate  # macOS/Linux
 
-2️⃣ Install Dependencies
+2️⃣ Install Requirements
 pip install -r requirements.txt
 
-3️⃣ Launch Streamlit App
+3️⃣ Run the Streamlit App
 streamlit run app/streamlit_app.py
 
 
 Open in browser:
-
 👉 http://localhost:8501
 
-🧪 Training Pipeline
+🧪 Train the ML Models
 
-Run the full training workflow:
+To train all 7 models and generate artifacts:
 
 python pipeline/training_pipeline.py
 
 
-This generates:
+Outputs:
 
-Trained CatBoost models
+CatBoost models
 
-Encoders
+Encoders.joblib
 
-Processed parquet files
+Input_stats.joblib
 
-Input feature stats
+Train/test parquet files
 
-Evaluation metrics
+Metadata
 
-🛠 Tech Stack
-Machine Learning
-
-CatBoost
-
-Scikit-learn
-
-Pandas / NumPy
-
-SHAP
-
-Application
-
-Streamlit
-
-FastAPI
-
-Uvicorn
-
-DevOps
-
-Docker
-
-Ready for Railway / Render / HuggingFace
-
-🌐 Deployment (Docker + FastAPI)
-Build Container
+🌐 Deployment (FastAPI + Docker)
+Build container
 docker build -t insurance-api -f api/Dockerfile .
 
-Run API
+Run
 docker run -p 8000:8000 insurance-api
 
-Open API Docs
+Open
 
 👉 http://localhost:8000/docs
 
-📊 Example Model Output
+📊 Example Prediction Output
 {
   "A_f": 2,
   "B_f": 3,
@@ -209,33 +179,30 @@ Open API Docs
 }
 
 
-Each prediction is followed by SHAP explanation in Streamlit.
+SHAP explains the reasoning for each option.
 
 🌱 Future Improvements
 
 Optuna hyperparameter tuning
 
-Transformer-based models
+Transformer-based sequence models
 
-Authentication for API
+Add authentication
 
-CI/CD pipeline with GitHub Actions
+Deploy Streamlit + API on cloud (Railway / Render / HF Spaces)
 
-Full cloud deployment
+CI/CD with GitHub Actions
 
 Monitoring (Prometheus + Grafana)
 
-👨‍💻 Author
+👨‍💻 Author – Muhammed Shibili
 
-Muhammed Shibili
-💼 Machine Learning Engineer
-🔥 Passionate about production-grade AI systems
-📫 Open to collaborations
+Machine Learning Engineer
+🔥 Passion for production-grade AI systems
+📫 Reach out for collaboration anytime!
 
-⭐ Support
+If you found this helpful:
 
-If this project helped you:
-
-👉 Star the repository
-👉 Share it on LinkedIn
-👉 Add it to your ML portfolio
+⭐ Star the repo
+🔗 Share on LinkedIn
+🍀 Add to your ML portfolio
