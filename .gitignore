@@ -1,33 +1,33 @@
-# Virtual Environments
-venv/
+# Virtual environments
 insurance_venv/
-*/__pycache__/
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
 *.pyc
 
-# Data
+# CatBoost temp folders
+catboost_info/
+tmp/
+
+# Jupyter cache
+.ipynb_checkpoints/
+
+# Raw data (too large for GitHub)
 data/raw/
-data/processed/
-*.parquet
+
+# Do NOT upload big models
+models/*.cbm
+models/*.bin
+models/*.h5
+
+# ONLY keep meta.joblib
+!models/meta.joblib
+
+# Parquet outputs
+data/processed/*.parquet
+
+# CSV outputs
 *.csv
-
-# Models
-models/
-*.cbm
-*.joblib
-*.pkl
-
-# System files
-.DS_Store
-Thumbs.db
-
-# SHAP and matplotlib caches
-*.png
-*.pdf
-*.svg
-
-# VS Code
-.vscode/
-
-# Python build
-build/
-dist/
